@@ -1,4 +1,7 @@
-syntax enable
+execute pathogen#infect()
+
+syntax on
+filetype plugin indent on
 
 " TABS
 set tabstop=4  " number of visual spaces per TAB
@@ -7,7 +10,7 @@ set tabstop=4  " number of visual spaces per TAB
 set number       " show line numbers
 set showcmd      " show command in bottom bar
 set showmatch    " highlight matching [{()}]
-set cursorline   " higlight 
+set cursorline   " higlight
 set cursorcolumn " highlight col
 
 " SEARCHING
@@ -22,14 +25,19 @@ nnoremap E $     " E goes to end of line
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-" POWERLINE
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-
+" AIRLINE
+let g:airline_powerline_fonts = 1
 " Always show statusline
 set laststatus=2
+" NERD Tree open with Ctrl+N
+map <C-n> :NERDTreeToggle<CR>
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
 " COLORSCHEME
 colorscheme badwolf
+
+
+" Reload help
+Helptags
