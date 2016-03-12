@@ -2,7 +2,17 @@ sudo apt-get install \
 	terminator \
 	vim \
 	git \
-	curl
+	curl \
+	zsh \
+	redshift \
+	ranger \
+	rvxt-unicode \
+	i3-wm \
+	i3blocks \
+	i3status \
+	i3 \
+	feh \
+	rofi
 
 # FONTS
 cd ~/Downloads && \
@@ -32,3 +42,7 @@ git clone https://github.com/scrooloose/nerdtree.git
 # Airline
 cd ~/.vim/bundle && \
 git clone https://github.com/bling/vim-airline
+
+
+# ZSH
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
