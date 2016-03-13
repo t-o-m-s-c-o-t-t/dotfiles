@@ -1,0 +1,26 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    use_system_font = False
+    custom_command = env TERM=xterm-256color bash
+    urgent_bell = True
+    background_image = /home/tom/Pictures/bb-8.jpg
+    cursor_color = "#cd825d"
+    scroll_background = False
+    scroll_on_output = False
+    show_titlebar = False
+    font = Inconsolata for Powerline Medium 11
+    background_color = "#15252a"
+    foreground_color = "#c4cccd"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
