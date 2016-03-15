@@ -6,7 +6,7 @@ sudo apt-get install \
 	zsh \
 	redshift \
 	ranger \
-	rvxt-unicode \
+	rxvt-unicode \
 	i3-wm \
 	i3blocks \
 	i3status \
