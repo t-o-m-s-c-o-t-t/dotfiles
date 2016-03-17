@@ -130,8 +130,8 @@ __powerline() {
 		print_section "\u@\h"         44 37 0 40
 		print_section "\t"            40 34 0 44
 		print_section "\w"            44 37 0 45
-		print_section "$(__git_info)" 45 37 0 $exit_colour
-		print_section "$PS_SYMBOL" 40 $exit_colour 0 
+		print_section "$(__git_info)" 45 37 0 40
+		print_section "$PS_SYMBOL"    40 $exit_colour 0 
 		PS1+=" "
     }
 
