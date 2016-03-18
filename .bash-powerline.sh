@@ -129,9 +129,24 @@ __powerline() {
 		#print_section "" 40 34 1 44
 		print_section "\u@\h"         44 37 0 40
 		print_section "\t"            40 34 0 44
-		print_section "\w"            44 37 0 45
-		print_section "$(__git_info)" 45 37 0 40
+
+		#if [ -d ".git" ]; then
+		#	print_section "\w"            44 37 0 45
+		#	print_section "$(__git_info)" 45 37 0 40
+		#else
+		#	print_section "\w"            44 37 0 40
+		#fi
+
+		if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+			print_section "\w"            44 37 0 45
+			print_section "$(__git_info)" 45 37 0 40
+		else
+			print_section "\w"            44 37 0 40
+		fi
+
+
 		print_section "$PS_SYMBOL"    40 $exit_colour 0 
+
 		PS1+=" "
     }
 
