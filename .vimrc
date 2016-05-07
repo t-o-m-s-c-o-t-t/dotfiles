@@ -17,21 +17,23 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+" GitHub plugins
+Plugin 'tpope/vim-fugitive'              " Git wrapper
+Plugin 'tpope/vim-surround'              " csab (change surround, replace a with b)
+Plugin 'scrooloose/nerdtree'             " 
+Plugin 'scrooloose/syntastic'            " 
+Plugin 'scrooloose/nerdcommenter'        " 
+Plugin 'vim-airline/vim-airline'         " 
+Plugin 'vim-airline/vim-airline-themes'  " 
+Plugin 'godlygeek/tabular'               " 
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-Plugin 'godlygeek/tabular'
+" Colorschemes
+Plugin 'antlypls/vim-colors-codeschool'
+Plugin 'tomasr/molokai'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'tcl'
+"Plugin 'tcl'
+"Plugin 'wombat'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -90,8 +92,11 @@ set laststatus=2
 " NERD Tree open with Ctrl+N
 map <C-n> :NERDTreeToggle<CR>
 
+set mouse= " Turn off mouse support
+
 " COLORSCHEME
-colorscheme badwolf
+" colorscheme badwolf
+colorscheme molokai
 
 " Reload help
 "Helptags
