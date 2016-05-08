@@ -20,19 +20,21 @@ Plugin 'VundleVim/Vundle.vim'
 " GitHub plugins
 Plugin 'tpope/vim-fugitive'              " Git wrapper
 Plugin 'tpope/vim-surround'              " csab (change surround, replace a with b)
-Plugin 'scrooloose/nerdtree'             " 
-Plugin 'scrooloose/syntastic'            " 
-Plugin 'scrooloose/nerdcommenter'        " 
-Plugin 'vim-airline/vim-airline'         " 
-Plugin 'vim-airline/vim-airline-themes'  " 
-Plugin 'godlygeek/tabular'               " 
+Plugin 'rking/ag.vim'                    " agrep inside vim
+Plugin 'scrooloose/nerdtree'             " file tree
+Plugin 'scrooloose/syntastic'            " syntax checking
+Plugin 'scrooloose/nerdcommenter'        " quick commenting - \ci to toggle comments
+Plugin 'vim-airline/vim-airline'         " statusline
+Plugin 'vim-airline/vim-airline-themes'  " +themes
+Plugin 'godlygeek/tabular'               " :Tabularize /, - table with comma sep
+Plugin 'ctrlpvim/ctrlp.vim'              " Ctrl-P fuzzy file finder
 
 " Colorschemes
 Plugin 'antlypls/vim-colors-codeschool'
 Plugin 'tomasr/molokai'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'tcl'
+Plugin 'tcl.vim'
 "Plugin 'wombat'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
@@ -70,6 +72,9 @@ set showcmd      " show command in bottom bar
 set showmatch    " highlight matching [{()}]
 set cursorline   " higlight
 set cursorcolumn " highlight col
+set mouse=       " Turn off mouse support
+" colorscheme badwolf
+colorscheme molokai
 
 " SEARCHING
 set incsearch    " search as characters are entered
@@ -83,20 +88,28 @@ nnoremap E $     " E goes to end of line
 "nnoremap $ <nop>
 "nnoremap ^ <nop>
 
+" Toggle past mode
 set pastetoggle=<F2>
 
-" AIRLINE
+" Make help files open in a new tab, rather than a split
+cabbrev help tab help
+
+""" PLUGINS
+" vim-airline - statusline
 let g:airline_powerline_fonts = 1
-" Always show statusline
-set laststatus=2
-" NERD Tree open with Ctrl+N
-map <C-n> :NERDTreeToggle<CR>
+set laststatus=2                     " Always show statusline
+" nerdtree - file tree
+map <C-n> :NERDTreeToggle<CR>        " open with Ctrl-n
+let g:NERDTreeWinPos = "right"       " open on the right
 
-set mouse= " Turn off mouse support
+" ctrlp - Fuzzy file finder
+let g:ctrlp_map = '<c-p>'            " Bind to Ctrl-P
+let g:ctrlp_cmd = 'CtrlP'            " Default command
+let g:ctrlp_show_hidden = 1          " show hidden files by default
+let g:ctrlp_working_path_mode = 'ra' " root dir (e.g. git root) else current dir
 
-" COLORSCHEME
-" colorscheme badwolf
-colorscheme molokai
+" ag
+let g:ag_prg="ag -u --vimgrep --smart-case"
 
 " Reload help
 "Helptags
