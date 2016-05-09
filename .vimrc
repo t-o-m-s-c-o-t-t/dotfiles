@@ -75,6 +75,7 @@ set cursorcolumn " highlight col
 set mouse=       " Turn off mouse support
 " colorscheme badwolf
 colorscheme molokai
+syntax on
 
 " SEARCHING
 set incsearch    " search as characters are entered
