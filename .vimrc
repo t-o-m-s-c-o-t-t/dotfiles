@@ -64,8 +64,8 @@ filetype plugin indent on    " required
 
 
 " TABS
-set tabstop=4  " number of visual spaces per TAB
-set listchars=tab:\|.,trail:_,extends:>,precedes:<,nbsp:~,eol:$
+set tabstop   =4 " number of visual spaces per TAB
+set shiftwidth=4 " indent amount (should match tabstop)
 
 " UI
 set number       " show line numbers
