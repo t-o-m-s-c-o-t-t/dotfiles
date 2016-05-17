@@ -26,6 +26,9 @@ Plugin 'vim-airline/vim-airline'         " statusline
 Plugin 'vim-airline/vim-airline-themes'  " +themes
 Plugin 'godlygeek/tabular'               " :Tabularize /, - table with comma sep
 Plugin 'ctrlpvim/ctrlp.vim'              " Ctrl-P fuzzy file finder
+Plugin 'xolox/vim-misc'                  " required for easytags
+Plugin 'xolox/vim-easytags'              " automatic ctags
+Plugin 'majutsushi/tagbar'               " ctags bar
 
 " Colorschemes
 Plugin 'antlypls/vim-colors-codeschool'
@@ -82,6 +85,10 @@ let g:ctrlp_working_path_mode = 'ra' " root dir (e.g. git root) else current dir
 
 " ag
 let g:ag_prg="ag -u --vimgrep --smart-case"
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
 
 " FUNCTIONS
 " Highlight unwanted whitespace
