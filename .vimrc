@@ -56,6 +56,7 @@ set hlsearch     " highlight matches of a search
 set scrolloff=10 " scroll so we can always see 10 lines around the cursor
 
 colorscheme molokai
+syntax on
 
 " BINDINGS
 " Toggle paste mode with F2
