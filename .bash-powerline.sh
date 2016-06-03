@@ -124,7 +124,8 @@ __powerline() {
 			local exit_colour=31
         fi
 
-		PS1="\n"
+		#PS1="\n"
+		PS1=""
 
 		#print_section "" 40 34 1 44
 		print_section "\u@\h"         44 37 0 40
