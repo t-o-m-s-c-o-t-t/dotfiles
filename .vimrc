@@ -18,31 +18,22 @@ Plugin 'VundleVim/Vundle.vim'
 " GitHub plugins
 Plugin 'tpope/vim-fugitive'              " Git wrapper
 Plugin 'tpope/vim-surround'              " csab (change surround, replace a with b)
-Plugin 'rking/ag.vim'                    " agrep inside vim
-Plugin 'scrooloose/nerdtree'             " file tree
+Plugin 'tpope/vim-vinegar'               " tweaks to netrw
+Plugin 'rking/ag.vim'                    " ag inside vim with links
 Plugin 'scrooloose/syntastic'            " syntax checking
 Plugin 'scrooloose/nerdcommenter'        " quick commenting - \ci to toggle comments
 Plugin 'vim-airline/vim-airline'         " statusline
 Plugin 'vim-airline/vim-airline-themes'  " +themes
 Plugin 'godlygeek/tabular'               " :Tabularize /, - table with comma sep
 Plugin 'ctrlpvim/ctrlp.vim'              " Ctrl-P fuzzy file finder
-Plugin 'xolox/vim-misc'                  " required for easytags
-Plugin 'xolox/vim-easytags'              " automatic ctags
-Plugin 'majutsushi/tagbar'               " ctags bar
+Plugin 'fatih/vim-go'                    " go language support
+Plugin 'airblade/vim-gitgutter'          " Git changes in the left gutter
 
 " Colorschemes
-Plugin 'antlypls/vim-colors-codeschool'
 Plugin 'tomasr/molokai'
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'wombat'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" see :h vundle for more details or wiki for FAQ
 
 " CONFIGS
 set number       " show line numbers
@@ -71,11 +62,28 @@ cabbrev help tab help
 
 " PLUGINS
 " vim-airline - statusline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='dark'
+let g:airline_mode_map = {
+	\ '__' : '-',
+	\ 'i'  : 'I',
+	\ 'n'  : 'N',
+	\ 'R'  : 'R',
+	\ 'c'  : 'C',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V',
+	\ '^V' : 'V',
+	\ 's'  : 'S',
+	\ 'S'  : 'S',
+	\ '^S' : 'S',
+	\ }
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
 set laststatus=2                     " Always show statusline
-" nerdtree - file tree
-map <C-n> :NERDTreeToggle<CR>        " open with Ctrl-n
-let g:NERDTreeWinPos = "right"       " open on the right
 
 " ctrlp - Fuzzy file finder
 let g:ctrlp_map = '<c-p>'            " Bind to Ctrl-P
@@ -85,10 +93,6 @@ let g:ctrlp_working_path_mode = 'ra' " root dir (e.g. git root) else current dir
 
 " ag
 let g:ag_prg="ag -u --vimgrep --smart-case"
-
-" tagbar
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_autoclose = 1
 
 " FUNCTIONS
 " Highlight unwanted whitespace
