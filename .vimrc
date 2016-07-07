@@ -28,6 +28,7 @@ Plugin 'godlygeek/tabular'               " :Tabularize /, - table with comma sep
 Plugin 'ctrlpvim/ctrlp.vim'              " Ctrl-P fuzzy file finder
 Plugin 'fatih/vim-go'                    " go language support
 Plugin 'airblade/vim-gitgutter'          " Git changes in the left gutter
+Plugin 'unblevable/quick-scope'          " Quicker navigation with f and F
 
 " Colorschemes
 Plugin 'tomasr/molokai'
@@ -36,21 +37,36 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " CONFIGS
-set number       " show line numbers
-set showcmd      " show command in bottom bar
-set showmatch    " highlight matching [{()}]
-set cursorline   " higlight
-set cursorcolumn " highlight col
-set mouse=       " Turn off mouse support
-set tabstop=4    " width of a tab in spaces
-set shiftwidth=4 " how many spaces to indend (should match tabstop)
+" show command in bottom bar
+set showcmd
+" highlight matching [{()}]
+set showmatch
+" higlight
+set cursorline
+" highlight col
+set cursorcolumn
+" Turn off mouse support
+set mouse=
+" width of a tab in spaces
+set tabstop=4
+" how many spaces to indend (should match tabstop)
+set shiftwidth=4
+" set whitespace chars
 set listchars=tab:\|-,trail:_,extends:>,precedes:<,nbsp:~,eol:$
-set incsearch    " incremental search as you type
-set hlsearch     " highlight matches of a search
-set scrolloff=10 " scroll so we can always see 10 lines around the cursor
-
-colorscheme molokai
+" incremental search as you type
+set incsearch
+" highlight matches of a search
+set hlsearch
+" scroll so we can always see 10 lines around the cursor
+set scrolloff=10
+" relative line numbers
+set relativenumber
+" syntax highlighting
 syntax on
+
+" set the colorscheme
+colorscheme molokai
+" TODO: Set default colorschemes per file type
 
 " BINDINGS
 " Toggle paste mode with F2
