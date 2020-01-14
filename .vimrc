@@ -10,14 +10,20 @@ Plug 'vim-airline/vim-airline'         " statusline
 Plug 'vim-airline/vim-airline-themes'  " +themes
 Plug 'godlygeek/tabular'               " :Tabularize /, - table with comma sep
 Plug 'ctrlpvim/ctrlp.vim'              " Ctrl-P fuzzy file finder
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'airblade/vim-gitgutter'          " Git changes in the left gutter
 Plug 'Shougo/echodoc.vim'              " Prevent preview windowD
 Plug 'cespare/vim-toml'                " TOML
-
-Plug 'valloric/youcompleteme'
-
 Plug 'dracula/vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -57,22 +63,29 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
 let g:airline_mode_map = {
-        \ '__' : '-',
-        \ 'i'  : 'I',
-        \ 'n'  : 'N',
-        \ 'R'  : 'R',
-        \ 'c'  : 'C',
-        \ 'v'  : 'V',
-        \ 'V'  : 'V',
-        \ '^V' : 'V',
-        \ 's'  : 'S',
-        \ 'S'  : 'S',
-        \ '^S' : 'S',
-        \ }
+      \ '__'     : '-',
+      \ 'c'      : 'C',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : 'N',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''     : 'S',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'V',
+      \ ''     : 'V',
+      \ }
 if !exists('g:airline_symbols')
         let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.branch = 'A '
 set laststatus=2                     " Always show statusline
 
 " ctrlp - Fuzzy file finder
@@ -83,6 +96,9 @@ let g:ctrlp_working_path_mode = 'ra' " root dir (e.g. git root) else current dir
 
 " ag
 let g:ag_prg="ag -u --vimgrep --smart-case"
+
+" netrw
+let g:netrw_liststyle=1
 
 " vim-go settings
 let g:go_highlight_functions = 1
@@ -95,3 +111,13 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 
+let g:deoplete#sources#go#gocode_binary = '/home/tom/go/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#unimported_packages = 1
+let g:deoplete#sources#go#source_importer = 1
+let g:deoplete#sources#go#builtin_objects = 1
+let g:deoplete#sources#go#fallback_to_source = 1
+
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
